@@ -28,6 +28,10 @@ const BoostCalculator = (props) => {
     unthrottledMonocleBoostBonus
   )
 
+  const [dilithiumT2, setDilithiumT2] = useState(0)
+  const [dilithiumT3, setDilithiumT3] = useState(0)
+  const [dilithiumT4, setDilithiumT4] = useState(0)
+
   const [internalHatcheryCalm, setInternalHatcheryCalm] = useState(200)
   const [isOffline, setIsOffline] = useState(true)
   const [hasProPermit, setHasProPermit] = useState(true)
@@ -39,6 +43,8 @@ const BoostCalculator = (props) => {
     (isOffline
       ? internalHatchRate * (1 + internalHatcheryCalm / 100)
       : internalHatchRate) * 4
+
+  const dilithiumStoneMultiplier = Math.pow(1.03, dilithiumT2) * Math.pow(1.06, dilithiumT3) * Math.pow(1.08, dilithiumT4)
 
   return (
     <Card
@@ -118,24 +124,58 @@ const BoostCalculator = (props) => {
 
           <label className="flex flex-col">
             <div className="mb-2 dark:text-white text-opacity-80 font-semibold">
-              Artifact Boost Duration Bonus
+              Dilithium Stones
               <span className="uppercase bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded-xl ml-2">
-                Coming Soon
+                Beta
               </span>
             </div>
-            <div className="flex space-x-2">
-              <div className="flex items-center dark:text-white text-opacity-50">
-                +
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12">
+              <div className="flex space-x-2">
+                <div className="flex items-center font-semibold	dark:text-white text-opacity-50">
+                  T2
+                </div>
+                <Input
+                  type="number"
+                  className="flex-grow min-w-0 w-8"
+                  placeholder="1, 2, 10, …"
+                  min={0}
+                  value={dilithiumT2}
+                  onChange={({ target: { value } }) =>
+                    setDilithiumT2(parseInt(value, 10) || 0)
+                  }
+                />{' '}
               </div>
-              <Input
-                type="number"
-                className="flex-grow"
-                placeholder="1, 2, 10, …"
-                value={0}
-                disabled
-              />{' '}
-              <div className="flex items-center dark:text-white text-opacity-50">
-                % boost duration
+              
+              <div className="flex space-x-2">
+                <div className="flex items-center font-semibold dark:text-white text-opacity-50">
+                  T3
+                </div>
+                <Input
+                  type="number"
+                  className="flex-grow min-w-0 w-8"
+                  placeholder="1, 2, 10, …"
+                  min={0}
+                  value={dilithiumT3}
+                  onChange={({ target: { value } }) =>
+                    setDilithiumT3(parseInt(value, 10) || 0)
+                  }
+                />{' '}
+              </div>
+              
+              <div className="flex space-x-2">
+                <div className="flex items-center font-semibold dark:text-white text-opacity-50">
+                  T4
+                </div>
+                <Input
+                  type="number"
+                  className="flex-grow min-w-0 w-8"
+                  placeholder="1, 2, 10, …"
+                  min={0}
+                  value={dilithiumT4}
+                  onChange={({ target: { value } }) =>
+                    setDilithiumT4(parseInt(value, 10) || 0)
+                  }
+                />{' '}
               </div>
             </div>
           </label>
@@ -211,6 +251,7 @@ const BoostCalculator = (props) => {
             hatchRate={hatchRate}
             hasProPermit={hasProPermit}
             monocleBoostBonus={monocleBoostBonus}
+            dilithiumStoneMultiplier = {dilithiumStoneMultiplier}
           />
         )}
       </div>

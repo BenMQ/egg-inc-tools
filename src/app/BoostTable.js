@@ -11,6 +11,7 @@ const BoostTable = ({
   hasProPermit,
   target,
   monocleBoostBonus,
+  dilithiumStoneMultiplier
 }) => {
   const [limit] = useState(50)
   const [sortBy, setSortBy] = useState('cost')
@@ -23,7 +24,7 @@ const BoostTable = ({
     }
     combos = combos.filter(
       (c) =>
-        c.chickensForHatchRate(hatchRate, { monocleBoostBonus }) >=
+        c.chickensForHatchRate(hatchRate, { monocleBoostBonus, dilithiumStoneMultiplier }) >=
         target * 0.98
     )
 
@@ -35,7 +36,7 @@ const BoostTable = ({
 
     combos = combos.slice(0, limit)
     return combos
-  }, [limit, hasProPermit, hatchRate, target, sortBy, monocleBoostBonus])
+  }, [limit, hasProPermit, hatchRate, target, sortBy, monocleBoostBonus, dilithiumStoneMultiplier])
 
   return (
     <table className="w-full mx-auto border border-blue-600">
@@ -121,7 +122,7 @@ const BoostTable = ({
               </td>
               <td className="px-2 py-1 text-right text-black dark:text-white font-semibold">
                 {displayValueShort(
-                  chickensForHatchRate(hatchRate, { monocleBoostBonus })
+                  chickensForHatchRate(hatchRate, { monocleBoostBonus, dilithiumStoneMultiplier},)
                 )}{' '}
                 🐔
               </td>

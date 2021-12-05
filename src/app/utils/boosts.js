@@ -176,8 +176,8 @@ export const boostCombinations = [
     //   prisms.map((p) => p.multiplier / (comboTime / p.time))
     // ),
     premium: prisms.length + beacons.length > 2,
-    chickensForHatchRate(hatchRate, { monocleBoostBonus = 0 } = {}) {
-
+    chickensForHatchRate(hatchRate, { monocleBoostBonus = 0, dilithiumStoneMultiplier = 1} = {}) {
+      console.log(dilithiumStoneMultiplier)
       function prismMultiplierWithArtifactBoost(prism) {
         return prism.multiplier * (1 + monocleBoostBonus / 100)
       }
