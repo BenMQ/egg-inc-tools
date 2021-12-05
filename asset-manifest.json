@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/egg-inc-tools/static/css/main.b5e44b0d.chunk.css",
-    "main.js": "/egg-inc-tools/static/js/main.de032460.chunk.js",
-    "main.js.map": "/egg-inc-tools/static/js/main.de032460.chunk.js.map",
+    "main.css": "/egg-inc-tools/static/css/main.89588db8.chunk.css",
+    "main.js": "/egg-inc-tools/static/js/main.0f74db8c.chunk.js",
+    "main.js.map": "/egg-inc-tools/static/js/main.0f74db8c.chunk.js.map",
     "runtime-main.js": "/egg-inc-tools/static/js/runtime-main.34c96d8e.js",
     "runtime-main.js.map": "/egg-inc-tools/static/js/runtime-main.34c96d8e.js.map",
     "static/js/2.cbea3a96.chunk.js": "/egg-inc-tools/static/js/2.cbea3a96.chunk.js",
     "static/js/2.cbea3a96.chunk.js.map": "/egg-inc-tools/static/js/2.cbea3a96.chunk.js.map",
     "index.html": "/egg-inc-tools/index.html",
-    "static/css/main.b5e44b0d.chunk.css.map": "/egg-inc-tools/static/css/main.b5e44b0d.chunk.css.map",
+    "static/css/main.89588db8.chunk.css.map": "/egg-inc-tools/static/css/main.89588db8.chunk.css.map",
     "static/js/2.cbea3a96.chunk.js.LICENSE.txt": "/egg-inc-tools/static/js/2.cbea3a96.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.34c96d8e.js",
     "static/js/2.cbea3a96.chunk.js",
-    "static/css/main.b5e44b0d.chunk.css",
-    "static/js/main.de032460.chunk.js"
+    "static/css/main.89588db8.chunk.css",
+    "static/js/main.0f74db8c.chunk.js"
   ]
 }
