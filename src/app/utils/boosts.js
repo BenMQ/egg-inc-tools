@@ -167,6 +167,9 @@ export const boostCombinations = [
     cost: sumBy(prisms, 'cost') + sumBy(beacons, 'cost'),
     tokens: sumBy(prisms, 'tokens') + sumBy(beacons, 'tokens'),
     time: comboTime,
+    boostedComboTime({dilithiumStoneMultiplier = 1} = {}) {
+      return comboTime * dilithiumStoneMultiplier
+    },
     name: [
       prisms.map((p) => p.letter).join(''),
       beacons.map((b) => b.letter).join(''),
@@ -177,7 +180,6 @@ export const boostCombinations = [
     // ),
     premium: prisms.length + beacons.length > 2,
     chickensForHatchRate(hatchRate, { monocleBoostBonus = 0, dilithiumStoneMultiplier = 1} = {}) {
-      console.log(dilithiumStoneMultiplier)
       function prismMultiplierWithArtifactBoost(prism) {
         return prism.multiplier * (1 + monocleBoostBonus / 100)
       }
@@ -187,19 +189,19 @@ export const boostCombinations = [
 
       const hatchMultiplierWithBeacon = sum(
         product(prisms, beacons).map(
-          ([prism, beacon]) => prismMultiplierWithArtifactBoost(prism) * beacon.multiplier * min([beacon.time, prism.time])
+          ([prism, beacon]) => prismMultiplierWithArtifactBoost(prism) * beacon.multiplier * min([beacon.time, prism.time]) * dilithiumStoneMultiplier
         ))
 
       let hatchMultiplierWithoutBeacon;
       if (beacons.length === 0) {
         // If there are no beacons used, simply sum up the effect of each prism over its duration.
-        hatchMultiplierWithoutBeacon = sum(prisms.map((p) => prismMultiplierWithArtifactBoost(p) * p.time))
+        hatchMultiplierWithoutBeacon = sum(prisms.map((p) => prismMultiplierWithArtifactBoost(p) * p.time * dilithiumStoneMultiplier))
       } else {
         // Find the duration for each prism that is not boosted by any boost beacons. 
         hatchMultiplierWithoutBeacon = sum(
           prisms.map((p) => {
             const maxBoostBeaconTime = max(beacons.map((i) => i.time))
-            return prismMultiplierWithArtifactBoost(p) * max([0, p.time - maxBoostBeaconTime])
+            return prismMultiplierWithArtifactBoost(p) * max([0, (p.time - maxBoostBeaconTime) * dilithiumStoneMultiplier])
           }))
       }
 

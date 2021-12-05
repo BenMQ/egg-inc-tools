@@ -6,6 +6,13 @@ import tokenUrl from 'app/images/Token.png'
 import { displayValueShort } from './utils/suffixes'
 import { orderBy } from 'lodash'
 
+const displayTime = (timeInMinutes) => {
+  const hours = Math.floor(timeInMinutes / 60)
+  const minutes = Math.floor(timeInMinutes) - hours * 60
+  const seconds = Math.round((timeInMinutes - hours * 60 -  minutes) * 60)
+  
+  return (<span>{hours || ''}{hours > 0 && 'h'} {minutes || ''}{minutes > 0 && 'min'} {seconds || ''}{seconds > 0 && 's'}</span>)
+}
 const BoostTable = ({
   hatchRate,
   hasProPermit,
@@ -71,6 +78,7 @@ const BoostTable = ({
             cost,
             tokens,
             time,
+            boostedComboTime,
             key,
             chickensForHatchRate,
           }) => (
@@ -143,7 +151,7 @@ const BoostTable = ({
                 />
               </td>
               <td className="text-right px-2 py-1 hidden sm:table-cell">
-                {time} min
+                {displayTime(time * dilithiumStoneMultiplier)}
               </td>
             </tr>
           )
