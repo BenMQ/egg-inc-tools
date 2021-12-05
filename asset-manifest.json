@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/egg-inc-tools/static/css/main.b5e44b0d.chunk.css",
-    "main.js": "/egg-inc-tools/static/js/main.e304325c.chunk.js",
-    "main.js.map": "/egg-inc-tools/static/js/main.e304325c.chunk.js.map",
+    "main.js": "/egg-inc-tools/static/js/main.de032460.chunk.js",
+    "main.js.map": "/egg-inc-tools/static/js/main.de032460.chunk.js.map",
     "runtime-main.js": "/egg-inc-tools/static/js/runtime-main.34c96d8e.js",
     "runtime-main.js.map": "/egg-inc-tools/static/js/runtime-main.34c96d8e.js.map",
     "static/js/2.cbea3a96.chunk.js": "/egg-inc-tools/static/js/2.cbea3a96.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.34c96d8e.js",
     "static/js/2.cbea3a96.chunk.js",
     "static/css/main.b5e44b0d.chunk.css",
-    "static/js/main.e304325c.chunk.js"
+    "static/js/main.de032460.chunk.js"
   ]
 }
